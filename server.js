@@ -12,9 +12,8 @@ var service = server.listen(port, function(request, response) {
     url = url.substr(n, length);
     request_page(url, function(pdf){
       response.statusCode = 200;
-      response.setHeader('Content-type', 'application/pdf')
-      response.setEncoding('binary');
-      response.write( fs.read('test.pdf') );
+      response.setHeader('Content-Type', 'text/html; charset=utf-8');
+      response.write(fs.read('indexnew.html'));
       console.log("Finished response");
       response.close();
     })
@@ -39,7 +38,7 @@ function request_page(url, callback){
             phantom.exit(1);
         } else {
             window.setTimeout(function () {
-                page.render('/tmp/rendered.pdf');
+                page.render('./pdf/rendered.pdf');
                 //phantom.exit();
                 callback();
             }, 2000);
