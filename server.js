@@ -14,7 +14,7 @@ var service = server.listen(port, function(request, response) {
       response.statusCode = 200;
       response.setHeader('Content-type', 'application/pdf')
       response.setEncoding('binary');
-      response.write( fs.read('rendered.pdf') );
+      response.write( fs.read('test.pdf') );
       console.log("Finished response");
       response.close();
     })
