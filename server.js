@@ -44,7 +44,7 @@ function request_page(url, callback){
             phantom.exit(1);
         } else {
             window.setTimeout(function () {
-                //page.render('/tmp/rendered.pdf');
+                page.render('/tmp/rendered.pdf');
                 var data = 'data:image/png;base64,' + page.renderBase64('png');
                 callback(data);
             }, 2000);
