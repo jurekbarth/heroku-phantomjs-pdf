@@ -17,6 +17,9 @@ var service = server.listen(port, function(request, response) {
       console.log("Finished response");
       response.close();
     })
+  } else {
+    response.statusCode = 400;
+    response.close();
   }
 });
 
@@ -38,7 +41,8 @@ function request_page(url, callback){
             phantom.exit(1);
         } else {
             window.setTimeout(function () {
-                page.render('./pdf/rendered.pdf');
+                //page.render('./pdf/rendered.pdf');
+                page.render('google_home.jpeg', {format: 'jpeg', quality: '100'});
                 //phantom.exit();
                 callback();
             }, 2000);
