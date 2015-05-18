@@ -7,6 +7,8 @@ var service = server.listen(port, function(request, response) {
   var url = request.url;
   var n = url.indexOf("/?url=http");
   if(n==0) {
+    var cwd = fs.absolute(".");
+    console.log(cwd);
     var length = url.length;
     n = url.indexOf("=") + 1;
     url = url.substr(n, length);
