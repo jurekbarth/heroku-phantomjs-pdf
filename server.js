@@ -12,10 +12,11 @@ var service = server.listen(port, function(request, response) {
     var length = url.length;
     n = url.indexOf("=") + 1;
     url = url.substr(n, length);
-    request_page(url, function(pdf){
+    request_page(url, function(data){
       response.statusCode = 200;
       response.setHeader('Content-Type', 'text/html; charset=utf-8');
-      response.write(fs.read('indexnew.html'));
+      //response.write(fs.read('indexnew.html'));
+      response.write('<html><body><img src="'+data+'"></body></html>');
       console.log("Finished response");
       response.close();
     })
@@ -43,8 +44,9 @@ function request_page(url, callback){
             phantom.exit(1);
         } else {
             window.setTimeout(function () {
-                page.render('/tmp/rendered.pdf');
-                callback();
+                //page.render('/tmp/rendered.pdf');
+                var data = 'data:image/png;base64,' + page.renderBase64('png');
+                callback(data);
             }, 2000);
         }
     });
