@@ -1,0 +1,21 @@
+{
+  "name": "phantomjspdf",
+  "version": "0.0.1",
+  "description": "Web Service to render webpage screenshots",
+  "main": "web.js",
+  "dependencies": {
+    "express": "*",
+    "body-parser": "*"
+  },
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Jurek Barth",
+  "license": "MIT"
+}

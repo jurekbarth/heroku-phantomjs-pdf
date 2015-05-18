@@ -1,1 +1,1 @@
-web: phantomjs server.js
+web: node web.js

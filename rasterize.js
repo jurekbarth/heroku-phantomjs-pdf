@@ -1,12 +1,11 @@
 var page = require('webpage').create(),
     system = require('system'),
-    address, output, size;
-
-if (system.args.length < 3 || system.args.length > 5) {
+    address;
+if (system.args.length != 2) {
+    console.log("Wrong Format");
     phantom.exit(1);
 } else {
     address = system.args[1];
-    output = system.args[2];
     page.viewportSize = { width: 1200, height: 1697 };
     page.paperSize = {
       width: '1200px',
@@ -19,7 +18,7 @@ if (system.args.length < 3 || system.args.length > 5) {
             phantom.exit(1);
         } else {
             window.setTimeout(function () {
-                page.render(output);
+                page.render("./public/rendered.pdf");
                 phantom.exit();
             }, 2000);
         }
