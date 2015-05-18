@@ -39,7 +39,7 @@ function request_page(url, callback){
             phantom.exit(1);
         } else {
             window.setTimeout(function () {
-                page.render('./tmp/rendered.pdf');
+                page.render('/tmp/rendered.pdf');
                 //phantom.exit();
                 callback();
             }, 2000);
