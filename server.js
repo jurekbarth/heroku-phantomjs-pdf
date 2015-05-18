@@ -41,8 +41,10 @@ function request_page(url, callback){
             phantom.exit(1);
         } else {
             window.setTimeout(function () {
-                //page.render('./pdf/rendered.pdf');
-                page.render('google_home.jpeg', {format: 'jpeg', quality: '100'});
+                page.render('./pdf/rendered.pdf');
+                var path = 'output.txt';
+                var content = 'Hello World!';
+                fs.write(path, content, 'w');
                 //phantom.exit();
                 callback();
             }, 2000);
